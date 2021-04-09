@@ -1,5 +1,7 @@
 
 	//The mob should have a gender you want before running this proc. Will run fine without H
+//EVA STATION EDIT REMOVAL BEGIN
+/*
 /datum/preferences/proc/random_character(gender_override, antag_override = FALSE)
 	if(randomise[RANDOM_SPECIES])
 		random_species()
@@ -49,6 +51,8 @@
 	pref_species = new random_species_type
 	if(randomise[RANDOM_NAME])
 		real_name = pref_species.random_name(gender,1)
+*/
+//EVA STATION EDIT REMOVAL END
 
 ///Setup a hardcore random character and calculate their hardcore random score
 /datum/preferences/proc/hardcore_random_setup(mob/living/carbon/human/character, antagonist, is_latejoiner)
@@ -105,6 +109,8 @@
 		hardcore_survival_score += available_hardcore_quirks[picked_quirk]
 		available_hardcore_quirks -= picked_quirk
 
+//EVA STATION EDIT REMOVAL BEGIN
+/*
 /datum/preferences/proc/update_preview_icon()
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
@@ -134,3 +140,5 @@
 	COMPILE_OVERLAYS(mannequin)
 	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
+*/
+//EVA STATION EDIT REMOVAL END

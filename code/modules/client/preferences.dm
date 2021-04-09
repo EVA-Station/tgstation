@@ -1,5 +1,7 @@
 GLOBAL_LIST_EMPTY(preferences_datums)
 
+//EVA STATION EDIT REMOVAL BEGIN
+/*
 /datum/preferences
 	var/client/parent
 	//doohickeys for savefiles
@@ -2042,3 +2044,5 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			return
 		else
 			custom_names[name_id] = sanitized_name
+*/
+//EVA STATION EDIT REMOVAL END

@@ -485,6 +485,8 @@
 				to_chat(src, "<span class='notice'>You feel your heart beating again!</span>")
 	electrocution_animation(40)
 
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /mob/living/carbon/human/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_CONTENTS)
@@ -502,6 +504,8 @@
 				if(2)
 					L.receive_damage(0,5)
 					Paralyze(100)
+*/
+//EVASTATION EDIT REMOVAL END
 
 /mob/living/carbon/human/acid_act(acidpwr, acid_volume, bodyzone_hit) //todo: update this to utilize check_obscured_slots() //and make sure it's check_obscured_slots(TRUE) to stop aciding through visors etc
 	var/list/damaged = list()

@@ -20,7 +20,8 @@
 	name = "cat tail"
 	desc = "A severed cat tail. Who's wagging now?"
 	tail_type = "Cat"
-
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /obj/item/organ/tail/cat/Insert(mob/living/carbon/human/H, special = FALSE, drop_if_replaced = TRUE)
 	..()
 	if(istype(H))
@@ -36,6 +37,8 @@
 		H.dna.species.mutant_bodyparts -= "tail_human"
 		color = H.hair_color
 		H.update_body()
+*/
+//EVASTATION EDIT REMOVAL END
 
 /obj/item/organ/tail/lizard
 	name = "lizard tail"
@@ -48,6 +51,8 @@
 	. = ..()
 	color = "#"+ random_color()
 
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /obj/item/organ/tail/lizard/Insert(mob/living/carbon/human/H, special = FALSE, drop_if_replaced = TRUE)
 	..()
 	if(istype(H))
@@ -70,6 +75,8 @@
 		tail_type = H.dna.features["tail_lizard"]
 		spines = H.dna.features["spines"]
 		H.update_body()
+*/
+//EVASTATION EDIT REMOVAL END
 
 /obj/item/organ/tail/lizard/before_organ_replacement(obj/item/organ/replacement)
 	. = ..()
@@ -91,6 +98,8 @@
 	tail_type = "Monkey"
 	icon_state = "severedmonkeytail"
 
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /obj/item/organ/tail/monkey/Insert(mob/living/carbon/human/H, special = FALSE, drop_if_replaced = TRUE)
 	..()
 	if(istype(H))
@@ -105,3 +114,5 @@
 		H.dna.features["tail_monkey"] = "None"
 		H.dna.species.mutant_bodyparts -= "tail_monkey"
 		H.update_body()
+*/
+//EVASTATION EDIT REMOVAL END

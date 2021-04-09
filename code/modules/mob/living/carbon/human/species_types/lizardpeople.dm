@@ -57,7 +57,8 @@
 	if(H)
 		stop_wagging_tail(H)
 	. = ..()
-
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /datum/species/lizard/can_wag_tail(mob/living/carbon/human/H)
 	return mutant_bodyparts["tail_lizard"] || mutant_bodyparts["waggingtail_lizard"]
 
@@ -79,6 +80,8 @@
 		mutant_bodyparts -= "waggingtail_lizard"
 		mutant_bodyparts -= "waggingspines"
 	H.update_body()
+*/
+//EVASTATION EDIT REMOVAL END
 
 /datum/species/lizard/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	var/real_tail_type = C.dna.features["tail_lizard"]

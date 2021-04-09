@@ -51,6 +51,9 @@
 
 	GLOB.emote_list = init_emote_list()
 
+	//EVA STATION EDIT ADDITION BEGIN
+	make_eva_station_datum_references()
+	//EVA STATION EDIT ADDITION END
 	init_crafting_recipes(GLOB.crafting_recipes)
 
 /// Inits the crafting recipe list, sorting crafting recipe requirements in the process.
