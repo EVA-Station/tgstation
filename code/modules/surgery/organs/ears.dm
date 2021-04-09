@@ -66,6 +66,8 @@
 	icon_state = "kitty"
 	damage_multiplier = 2
 
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /obj/item/organ/ears/cat/Insert(mob/living/carbon/human/H, special = 0, drop_if_replaced = TRUE)
 	..()
 	if(istype(H))
@@ -80,6 +82,8 @@
 		H.dna.features["ears"] = "None"
 		H.dna.species.mutant_bodyparts -= "ears"
 		H.update_body()
+*/
+//EVASTATION EDIT REMOVAL END
 
 /obj/item/organ/ears/penguin
 	name = "penguin ears"

@@ -806,6 +806,8 @@
 	add_overlay(standing)
 
 //Gives you a proper icon appearance for the dismembered limb
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /obj/item/bodypart/proc/get_limb_icon(dropped)
 	icon_state = "" //to erase the default sprite, we're building the visual aspects of the bodypart through overlays alone.
 
@@ -875,6 +877,8 @@
 			limb.color = "#[draw_color]"
 			if(aux_zone)
 				aux.color = "#[draw_color]"
+*/
+//EVASTATION EDIT REMOVAL END
 
 /obj/item/bodypart/deconstruct(disassembled = TRUE)
 	drop_organs()

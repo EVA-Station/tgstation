@@ -103,7 +103,8 @@
 
 	apply_overlay(DAMAGE_LAYER)
 
-
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /mob/living/carbon/update_inv_wear_mask()
 	remove_overlay(FACEMASK_LAYER)
 
@@ -120,6 +121,8 @@
 		update_hud_wear_mask(wear_mask)
 
 	apply_overlay(FACEMASK_LAYER)
+*/
+//EVASTATION EDIT REMOVAL END
 
 /mob/living/carbon/update_inv_neck()
 	remove_overlay(NECK_LAYER)
@@ -148,6 +151,8 @@
 
 	apply_overlay(BACK_LAYER)
 
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /mob/living/carbon/update_inv_head()
 	remove_overlay(HEAD_LAYER)
 
@@ -163,7 +168,8 @@
 		update_hud_head(head)
 
 	apply_overlay(HEAD_LAYER)
-
+*/
+//EVASTATION EDIT REMOVAL END
 
 /mob/living/carbon/update_inv_handcuffed()
 	remove_overlay(HANDCUFF_LAYER)
@@ -215,6 +221,8 @@
 		var/obj/item/bodypart/BP = X
 		BP.original_owner = WEAKREF(src)
 
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /mob/living/carbon/proc/update_body_parts()
 	//CHECK FOR UPDATE
 	var/oldkey = icon_render_key
@@ -244,8 +252,8 @@
 
 	apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()
-
-
+*/
+//EVASTATION EDIT REMOVAL END
 
 /////////////////////
 // Limb Icon Cache //
@@ -262,7 +270,8 @@
 */
 
 //produces a key based on the mob's limbs
-
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /mob/living/carbon/proc/generate_icon_render_key()
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X
@@ -278,7 +287,8 @@
 
 	if(HAS_TRAIT(src, TRAIT_HUSK))
 		. += "-husk"
-
+*/
+//EVASTATION EDIT REMOVAL END
 
 //change the mob's icon to the one matching its key
 /mob/living/carbon/proc/load_limb_from_cache()

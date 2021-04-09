@@ -63,7 +63,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	  * They also allow for faster '[]' list access versus 'in'. Other than that, they are useless right now.
 	  * Layer hiding is handled by [/datum/species/proc/handle_mutant_bodyparts] below.
 	  */
-	var/list/mutant_bodyparts = list()
+	//var/list/mutant_bodyparts = list() //EVASTATION EDIT REMOVAL
+	var/list/list/mutant_bodyparts = list() //EVASTATION EDIT ADDITION
 	///Internal organs that are unique to this race, like a tail.
 	var/list/mutant_organs = list()
 	///The bodyparts this species uses. assoc of bodypart string - bodypart type. Make sure all the fucking entries are in or I'll skin you alive.
@@ -214,6 +215,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
  * This proc generates which species are available to pick from in character setup.
  * If there are no available roundstart species, defaults to human.
  */
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /proc/generate_selectable_species()
 	for(var/I in subtypesof(/datum/species))
 		var/datum/species/S = new I
@@ -222,6 +225,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			qdel(S)
 	if(!GLOB.roundstart_races.len)
 		GLOB.roundstart_races += "human"
+*/
+//EVASTATION EDIT REMOVAL END
 
 /**
  * Checks if a species is eligible to be picked at roundstart.
@@ -352,6 +357,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
  * * old_species - The species that the carbon used to be before becoming this race, used for regenerating organs.
  * * pref_load - Preferences to be loaded from character setup, loads in preferred mutant things like bodyparts, digilegs, skin color, etc.
  */
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /datum/species/proc/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	// Drop the items the new species can't wear
 	if((AGENDER in species_traits))
@@ -420,6 +427,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	C.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speedmod)
 
 	SEND_SIGNAL(C, COMSIG_SPECIES_GAIN, src, old_species)
+*/
+//EVASTATION EDIT REMOVAL END
 
 /**
  * Proc called when a carbon is no longer this species.
@@ -494,7 +503,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/dynamic_fhair_suffix = ""
 
 	//for augmented heads
-	if(HD.status == BODYPART_ROBOTIC)
+	//if(HD.status == BODYPART_ROBOTIC) //EVASTATION EDIT REMOVAL
+	//EVASTATION EDIT ADDITION BEGIN
+	if(HD.status == BODYPART_ROBOTIC && !(ROBOTIC_LIMBS in species_traits))
+	//EVASTATION EDIT ADDITION END
 		return
 
 	//we check if our hat or helmet hides our facial hair.
@@ -631,6 +643,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
  * Arguments:
  * * H - Human, whoever we're handling the body for
  */
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /datum/species/proc/handle_body(mob/living/carbon/human/H)
 	H.remove_overlay(BODY_LAYER)
 
@@ -729,6 +743,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	H.apply_overlay(BODY_LAYER)
 	handle_mutant_bodyparts(H)
+*/
+//EVASTATION EDIT REMOVAL END
 
 /**
  * Handles the mutant bodyparts of a human
@@ -739,6 +755,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
  * * H - Human, whoever we're handling the body for
  * * forced_colour - The forced color of an accessory. Leave null to use mutant color.
  */
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/H, forced_colour)
 	var/list/bodyparts_to_add = mutant_bodyparts.Copy()
 	var/list/relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
@@ -949,7 +967,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	H.apply_overlay(BODY_BEHIND_LAYER)
 	H.apply_overlay(BODY_ADJ_LAYER)
 	H.apply_overlay(BODY_FRONT_LAYER)
-
+*/
+//EVASTATION EDIT REMOVAL END
 
 //This exists so sprite accessories can still be per-layer without having to include that layer's
 //number in their sprite name, which causes issues when those numbers change.
@@ -964,6 +983,16 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 ///Proc that will randomise the hair, or primary appearance element (i.e. for moths wings) of a species' associated mob
 /datum/species/proc/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
+	//EVASTATION EDIT ADDITION BEGIN
+	for(var/key in mutant_bodyparts) //Randomize currently attached mutant bodyparts, organs should update when they need to (detachment)
+		var/datum/sprite_accessory/SP = random_accessory_of_key_for_species(key, src)
+		var/list/color_list = SP.get_default_color(human_mob.dna.features, src)
+		var/list/final_list = list()
+		final_list[MUTANT_INDEX_NAME] = SP.name
+		final_list[MUTANT_INDEX_COLOR_LIST] = color_list
+		mutant_bodyparts[key] = final_list
+	human_mob.update_mutant_bodyparts()
+	//EVASTATION EDIT ADDITION END
 	human_mob.hairstyle = random_hairstyle(human_mob.gender)
 	human_mob.update_hair()
 
@@ -2042,11 +2071,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 //Tail Wagging//
 ////////////////
 
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /datum/species/proc/can_wag_tail(mob/living/carbon/human/H)
 	return FALSE
 
 /datum/species/proc/is_wagging_tail(mob/living/carbon/human/H)
 	return FALSE
+*/
+//EVASTATION EDIT REMOVAL END
 
 /*
  * This proc is called when a mob loses their tail.
@@ -2105,9 +2138,13 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	SEND_SIGNAL(former_tail_owner, COMSIG_CLEAR_MOOD_EVENT, "wrong_tail_regained")
 	stop_wagging_tail(former_tail_owner)
 
+//EVASTATION EDIT REMOVAL BEGIN
+/*
 /datum/species/proc/start_wagging_tail(mob/living/carbon/human/H)
 
 /datum/species/proc/stop_wagging_tail(mob/living/carbon/human/H)
+*/
+//EVASTATION EDIT REMOVAL END
 
 ///////////////
 //FLIGHT SHIT//
