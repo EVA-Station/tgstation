@@ -423,7 +423,6 @@ GLOBAL_LIST_INIT(food, list(
 					dat += "<table width='100%'><tr><td width='17%' valign='top'>"
 					dat += "<b>Species:</b><BR><a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a><BR>"
 					dat += "<b>Species Naming:</b><BR><a href='?_src_=prefs;preference=custom_species;task=input'>[(features["custom_species"]) ? features["custom_species"] : "Default"]</a><BR>"
-					dat += "<b>Sprite body size:</b><BR><a href='?_src_=prefs;preference=body_size;task=input'>[(features["body_size"] * 100)]%</a> <a href='?_src_=prefs;preference=show_body_size;task=input'>[show_body_size ? "Hide preview" : "Show preview"]</a><BR>"
 					dat += "<h2>Flavor Text</h2>"
 					// Carbon flavor text
 					dat += "<a href='?_src_=prefs;preference=flavor_text;task=input'><b>Set Examine Text</b></a><br>"
@@ -447,18 +446,6 @@ GLOBAL_LIST_INIT(food, list(
 					else
 						dat += "[copytext(html_encode(features["silicon_flavor_text"]), 1, 40)]..."
 
-					dat +=	"<h2>OOC Preferences</h2>"
-					dat += 	"<b>ERP:</b><a href='?_src_=prefs;preference=erp_pref;task=input'>[erp_pref]</a> "
-					dat += 	"<b>Non-Con:</b><a href='?_src_=prefs;preference=noncon_pref;task=input'>[noncon_pref]</a> "
-					dat += 	"<b>Vore:</b><a href='?_src_=prefs;preference=vore_pref;task=input'>[vore_pref]</a><br>"
-					dat += "<a href='?_src_=prefs;preference=ooc_prefs;task=input'><b>Set OOC prefs</b></a><br>"
-					if(length(ooc_prefs) <= 40)
-						if(!length(ooc_prefs))
-							dat += "\[...\]"
-						else
-							dat += "[html_encode(ooc_prefs)]"
-					else
-						dat += "[copytext(html_encode(ooc_prefs), 1, 40)]..."
 					dat += "<br>"
 
 					//dat += "<a href='?_src_=prefs;preference=species;task=random'>Random Species</A> "
