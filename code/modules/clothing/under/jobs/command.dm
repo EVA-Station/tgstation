@@ -1,8 +1,8 @@
 /obj/item/clothing/under/rank/captain
-	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
+	desc = "It's a skintight jumpsuit issued by zoomtech with copper trims denoting the rank of \"Captain\"."
 	name = "captain's jumpsuit"
-	icon_state = "captain"
-	inhand_icon_state = "b_suit"
+	icon_state = "zcaptain"
+	inhand_icon_state = "zcaptain"
 	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
 	icon = 'icons/obj/clothing/under/captain.dmi'
@@ -11,9 +11,9 @@
 
 /obj/item/clothing/under/rank/captain/skirt
 	name = "captain's jumpskirt"
-	desc = "It's a blue jumpskirt with some gold markings denoting the rank of \"Captain\"."
-	icon_state = "captain_skirt"
-	inhand_icon_state = "b_suit"
+	desc = "It's a skintight jumpskirt issued by zoomtech with copper trims denoting the rank of \"Captain\"."
+	icon_state = "zcaptain_skirt"
+	inhand_icon_state = "zcaptain"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = FEMALE_UNIFORM_TOP

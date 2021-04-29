@@ -167,9 +167,9 @@
 	inhand_icon_state = "browngloves"
 
 /obj/item/clothing/gloves/color/captain
-	desc = "Regal blue gloves, with a nice gold trim, a diamond anti-shock coating, and an integrated thermal barrier. Swanky."
+	desc = "Thick black gloves with a shock-resistant coating, and an integrated thermal barrier. The most cutting edge gloves zoomtech could provide."
 	name = "captain's gloves"
-	icon_state = "captain"
+	icon_state = "zcapgloves"
 	inhand_icon_state = "egloves"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
