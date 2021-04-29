@@ -365,6 +365,11 @@
 	icon_state = "bigsunglasses"
 	inhand_icon_state = "bigsunglasses"
 
+/obj/item/clothing/glasses/sunglasses/zoomtech
+	desc = "Patent brand zoomtech sunglasses, their effectiveness is debatable but style indesputable."
+	icon_state = "zsun"
+	inhand_icon_state = "zsun"
+
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
 	desc = "Thermals in the shape of glasses."
