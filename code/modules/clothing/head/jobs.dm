@@ -43,12 +43,12 @@
 /obj/item/clothing/head/caphat
 	name = "captain's hat"
 	desc = "It's good being the king."
-	icon_state = "captain"
-	inhand_icon_state = "that"
+	icon_state = "zcaphat"
+	inhand_icon_state = "zcaphat"
 	flags_inv = 0
 	armor = list(MELEE = 25, BULLET = 15, LASER = 25, ENERGY = 35, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50, WOUND = 5)
 	strip_delay = 60
-	dog_fashion = /datum/dog_fashion/head/captain
+	dog_fashion = null
 
 //Captain: This is no longer space-worthy
 /obj/item/clothing/head/caphat/parade
